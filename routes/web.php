@@ -17,10 +17,15 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// ✅ Ruta nueva para Directivas
+// Directivas
 Route::get('/directivas', function () {
     return Inertia::render('Directivas');
 })->middleware(['auth', 'verified'])->name('directivas');
+
+//  Relojes
+Route::get('/relojes', function () {
+    return Inertia::render('RelojesPadre');
+})->middleware(['auth', 'verified'])->name('relojes');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
